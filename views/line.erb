@@ -1,7 +1,7 @@
 <h1>Add a station to <%= @line.name() %></h1>
 
 <form action="/stations" method="post">
-  <input id='station_id' name='station_id' type='hidden' value='<%= @station.id() %>'>
+  <input id='line_id' name='line_id' type='hidden' value='<%= @line.id() %>'>
 
   <div class="form-group">
     <label class = "form-label" for='line_station'>Add a line to the station:</label>
