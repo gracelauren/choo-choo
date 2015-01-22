@@ -74,5 +74,22 @@ describe(Station) do
       expect(Station.all()).to eq([test_station2])
     end
   end
+  
+    describe('#remove_line_connection') do
+    it("removes connection entry from stops table") do
+      test_station = Station.new({ :name => "Gemini" })
+      test_station.save()
+      test_station2 = Station.new({ :name => "Taurus" })
+      test_station2.save()
+      test_line = Line.new({ :name => "Red"})
+      test_line.save()
+      test_line2 = Line.new({ :name => "Yellow"})
+      test_line2.save()
+      test_station.add_line(test_line)
+      test_station.add_line(test_line2)
+      test_station.remove_line_connection(test_line)
+      expect(test_station.lines()).to(eq([test_line2]))
+    end
+  end
 
 end
