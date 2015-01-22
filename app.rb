@@ -62,11 +62,10 @@ end
 
 post('/stations') do
   @stations = Station.all()
-  line_station = params.fetch('line_station')
-  line_id = params.fetch('line_id').to_i()
-  @station = Station.new({:name => line_station, :line_id => line_id})
-  @station.save()
+  station_id = params.fetch('station_id').to_i()
+  line_id = params.fetch('line_id').to_i()  
   @line = Line.find(line_id)
+  @station = Station.find(station_id)
   @line.add_station(@station)
   erb(:line)
 end

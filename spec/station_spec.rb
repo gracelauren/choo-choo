@@ -75,6 +75,7 @@ describe(Station) do
     end
   end
 
+
   describe('#remove_line_connection') do
     it("removes connection entry from stops table") do
       test_station = Station.new({ :name => "Gemini" })
