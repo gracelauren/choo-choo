@@ -62,4 +62,8 @@ class Station
   define_method(:delete) do
     DB.exec("DELETE FROM stations WHERE id = #{self.id()};")
   end
+  
+  define_method(:remove_line_connection) do |line|
+    DB.exec("DELETE FROM stops WHERE station_id = #{self.id()} AND line_id = #{line.id()};")
+  end
 end
