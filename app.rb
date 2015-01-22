@@ -60,3 +60,14 @@ post('/lines') do
   @station.add_line(@line)
   erb(:station)
 end
+
+post('/stations') do
+  @stations = Station.all()
+  line_station = params.fetch('line_station')
+  line_id = params.fetch("line_id").to_i()
+  @station = Station.new({:name => line_station, :line_id => line_id})
+  @station.save()
+  @line = Line.find(line_id)
+  @line.add_station(@station)
+  erb(:line)
+end
