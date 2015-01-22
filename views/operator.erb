@@ -1,0 +1,48 @@
+<h1>Hello System Operator!</h1>
+<h3>Please make your changes here:</h3>
+
+
+<h3>Stations</h3>
+
+<form action="/station" method="post">
+  <input type="text" name="station_name">
+  <label for="station_name">Enter the name of your new station:</label>
+
+  <button type="submit"></button>
+</form>
+<br>
+<% if @stations == nil %>
+  <p>There are no stations yet!</p>
+<% else %>
+  <ul>
+    <% @stations.each() do |station|  %>
+    <li><a href="/station/<%= station.id() %>"><%= station.name() %></a></li>
+    <% end %>
+  </ul>
+<% end %>
+<br>
+
+<h3>Lines</h3>
+
+<form action="/line" method="post">
+  <input type="text" name="line_name">
+  <label for="line_name">Enter the name of your new line:</label>
+
+  <button type="submit"></button>
+</form>
+
+<br>
+<% if @lines == nil %>
+  <p>There are no lines yet!</p>
+<% else %>
+  <ul>
+    <% @lines.each() do |line|  %>
+    <li><a href="/line/<%= line.id() %>"><%= line.name() %></a></li>
+    <% end %>
+  </ul>
+<% end %>
+<br>
+
+<div class="span7 text-center">
+  <a href="/"><button class="button button-back center btn">Return to main page</a>
+  </div>

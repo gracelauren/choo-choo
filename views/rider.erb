@@ -1,0 +1,31 @@
+
+
+<h1> Lines </h1>
+<br>
+<% if @lines == nil %>
+<p>There are no lines yet!</p>
+<% else %>
+<ul>
+  <% @lines.each() do |line|  %>
+  <li><a href="/line/<%= line.id() %>"><%= line.name() %></a></li>
+  <% end %>
+</ul>
+<% end %>
+<br>
+
+<h1> Stations </h1>
+<br>
+<% if @stations == nil %>
+<p>There are no lines yet!</p>
+<% else %>
+<ul>
+  <% @stations.each() do |station|  %>
+  <li><a href="/station/<%= station.id() %>"><%= station.name() %></a></li>
+  <% end %>
+</ul>
+<% end %>
+<br>
+
+<div class="span7 text-center">
+  <a href="/"><button class="button button-back center btn">Return to main page</a>
+  </div>
