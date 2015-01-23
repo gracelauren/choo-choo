@@ -1,4 +1,6 @@
 <div class ='container'>
+  <p><a href="/stations/<%= @station.id() %>/edit">Click Here to Edit <%= @station.name() %> Station</a></p>
+
   <h1>Add a line to <%= @station.name() %></h1>
 
   <form action="/lines" method="post">
@@ -19,6 +21,22 @@
     </div>
   </form>
 
+  <form action="/delete_line" method="post">
+    <input name="_method" type="hidden" value="delete">
+    <input type='hidden' value='<%= @station.id() %>' name='station_id'>
+    <div class="form-group">
+      <label class = "form-label" for="line_id">Remove a line from this station:</label>
+      <select class = "form-control input-lg" id="line_id" name="line_id">
+        <option value='' disabled selected style='display:none'>Please Choose</option>
+        <% @station.lines().each() do |line| %>
+          <option value="<%= line.id() %>"><%= line.name() %></option>
+        <% end %>
+      </select>
+    </div>
+    <div class="span7 text-center">
+      <button type="submit" value="delete" class="button btn-danger">Remove Line</button>
+    </div>
+  </form>
 
 
   <br>
@@ -39,6 +57,5 @@
 
     <div class="span7 text-center">
       <a href="/operator"><button class="button button-back center btn">Return to System Operator Page</a>
-      </div>
     </div>
 </div>

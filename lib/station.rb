@@ -9,7 +9,7 @@ class Station
 
   define_singleton_method(:all) do
     stations = []
-    returned_stations = DB.exec("SELECT * FROM stations;")
+    returned_stations = DB.exec("SELECT * FROM stations ORDER BY name;")
     returned_stations.each() do |station|
       id = station.fetch('id').to_i()
       name = station.fetch('name')
@@ -66,5 +66,9 @@ class Station
 
   define_method(:remove_line_connection) do |line|
     DB.exec("DELETE FROM stops WHERE station_id = #{self.id()} AND line_id = #{line.id()};")
+  end
+
+  define_singleton_method(:remove_empty_name_entry) do
+    DB.exec("DELETE FROM stations WHERE name = '';")
   end
 end

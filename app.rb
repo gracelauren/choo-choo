@@ -13,6 +13,8 @@ get('/') do
 end
 
 get('/operator') do
+  Line.remove_empty_name_entry()
+  Station.remove_empty_name_entry()
   @lines = Line.all()
   @stations = Station.all()
   erb(:operator)
@@ -44,12 +46,6 @@ get('/line/:id') do
   erb(:line)
 end
 
-get('/rider') do
-  @stations = Station.all()
-  @lines = Line.all()
-  erb(:rider)
-end
-
 post('/lines') do
   @lines = Line.all()
   line_id = params.fetch('line_id').to_i()
@@ -60,6 +56,17 @@ post('/lines') do
   erb(:station)
 end
 
+delete('/delete_line') do
+  line_id = params.fetch('line_id').to_i()
+  station_id = params.fetch('station_id').to_i()
+  @line = Line.find(line_id)
+  @station = Station.find(station_id)
+  @station.remove_line_connection(@line)
+  @lines = Line.all()
+  url = "/station/" + station_id.to_s()
+  redirect(url)
+end
+
 post('/stations') do
   @stations = Station.all()
   station_id = params.fetch('station_id').to_i()
@@ -68,6 +75,64 @@ post('/stations') do
   @station = Station.find(station_id)
   @line.add_station(@station)
   erb(:line)
+end
+
+delete('/delete_station') do
+  line_id = params.fetch('line_id').to_i()
+  station_id = params.fetch('station_id').to_i()
+  @line = Line.find(line_id)
+  @station = Station.find(station_id)
+  @line.remove_station_connection(@station)
+  @stations = Station.all()
+  url = "/line/" + line_id.to_s()
+  redirect(url)
+end
+
+get("/stations/:id/edit") do
+  @station = Station.find(params.fetch("id").to_i())
+  erb(:station_edit)
+end
+
+patch("/stations/:id") do
+  name = params.fetch("name")
+  @station = Station.find(params.fetch("id").to_i())
+  @station.update({:name => name})
+  erb(:station)
+end
+
+delete("/stations/:id") do
+  @station = Station.find(params.fetch("id").to_i())
+  @station.delete()
+  @stations = Station.all()
+  redirect('/operator')
+end
+
+get("/lines/:id/edit") do
+  @line = Line.find(params.fetch("id").to_i())
+  erb(:line_edit)
+end
+
+patch("/lines/:id") do
+  name = params.fetch("name")
+  @line = Line.find(params.fetch("id").to_i())
+  @line.update({:name => name})
+  erb(:line)
+end
+
+delete("/lines/:id") do
+  @line = Line.find(params.fetch("id").to_i())
+  @line.delete()
+  @lines = Line.all()
+  redirect('/operator')
+end
+
+
+get('/rider') do
+  Line.remove_empty_name_entry()
+  Station.remove_empty_name_entry()
+  @stations = Station.all()
+  @lines = Line.all()
+  erb(:rider)
 end
 
 get('/line_stations/:line_id') do

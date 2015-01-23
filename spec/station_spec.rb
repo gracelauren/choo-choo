@@ -5,13 +5,13 @@ describe(Station) do
   describe('#name') do
     it('will return the name of a station') do
       test_station = Station.new({ :name => "Gemini" })
-      expect(test_station.name()).to eq("Gemini")
+      expect(test_station.name()).to(eq("Gemini"))
     end
   end
 
   describe(".all") do
     it("is empty as first") do
-    expect(Station.all()).to eq([])
+    expect(Station.all()).to(eq([]))
     end
   end
 
@@ -19,7 +19,7 @@ describe(Station) do
     it('saves the name of a station to the stations array') do
       test_station = Station.new({ :name => 'Gemini'})
       test_station.save()
-      expect(Station.all()).to eq([test_station])
+      expect(Station.all()).to(eq([test_station]))
     end
   end
 
@@ -27,7 +27,7 @@ describe(Station) do
     it("returns the station as equal if the new station is the same name") do
       test_station = Station.new({ :name => "Gemini" })
       test_station2 = Station.new({ :name => "Gemini" })
-      expect(test_station).to eq(test_station2)
+      expect(test_station).to(eq(test_station2))
     end
   end
 
@@ -37,7 +37,7 @@ describe(Station) do
       test_station.save()
       test_station2 = Station.new({ :name => "Taurus" })
       test_station2.save()
-      expect(Station.find(test_station.id())).to eq(test_station)
+      expect(Station.find(test_station.id())).to(eq(test_station))
     end
   end
 
@@ -51,7 +51,7 @@ describe(Station) do
       test_line2.save()
       test_station.add_line(test_line)
       test_station.add_line(test_line2)
-      expect(test_station.lines()).to eq([test_line, test_line2])
+      expect(test_station.lines()).to(eq([test_line, test_line2]))
     end
   end
 
@@ -60,18 +60,18 @@ describe(Station) do
       test_station = Station.new({ :name => "Gemini"})
       test_station.save()
       test_station.update({ :name => "Taurus" })
-      expect(test_station.name()).to eq("Taurus")
+      expect(test_station.name()).to(eq("Taurus"))
     end
   end
 
   describe("#delete") do
-    it() do
+    it('lets you delete a station from the database') do
       test_station = Station.new({ :name => "Gemini"})
       test_station.save()
       test_station2 = Station.new({ :name => "Taurus"})
       test_station2.save()
       test_station.delete()
-      expect(Station.all()).to eq([test_station2])
+      expect(Station.all()).to(eq([test_station2]))
     end
   end
 
@@ -93,4 +93,13 @@ describe(Station) do
     end
   end
 
+  describe('.remove_empty_name_entry')
+    it('deletes a station from the database where the user entered nothing into the string') do
+      test_station = Station.new({ :name => "Gemini"})
+      test_station.save()
+      test_station2 = Station.new({ :name => ''})
+      test_station2.save()
+      Station.remove_empty_name_entry()
+      expect(Station.all()).to(eq([test_station]))
+  end
 end
