@@ -1,31 +1,39 @@
+<div class ='container'>
+  <h1>Hello Rider!</h1>
+  <h3>Below are the lines and stations present.</h3>
 
-
-<h1> Lines </h1>
-<br>
-<% if @lines == nil %>
-<p>There are no lines yet!</p>
-<% else %>
-<ul>
-  <% @lines.each() do |line|  %>
-  <li><a href="/line/<%= line.id() %>"><%= line.name() %></a></li>
-  <% end %>
-</ul>
-<% end %>
-<br>
-
-<h1> Stations </h1>
-<br>
-<% if @stations == nil %>
-<p>There are no lines yet!</p>
-<% else %>
-<ul>
-  <% @stations.each() do |station|  %>
-  <li><a href="/station/<%= station.id() %>"><%= station.name() %></a></li>
-  <% end %>
-</ul>
-<% end %>
-<br>
-
-<div class="span7 text-center">
-  <a href="/"><button class="button button-back center btn">Return to main page</a>
+  <div class="span7 text-center">
+    <a href="/"><button class="button button-back center btn">Return to main page</a>
+    </div>
   </div>
+
+<div class = 'row containerLR'>
+  <div class ='col-xs-4 col-sm-6 R'>
+    <h1> Lines </h1>
+    <br>
+    <% if @lines == nil %>
+    <p>There are no lines yet!</p>
+    <% else %>
+    <ul>
+      <% @lines.each() do |line|  %>
+      <li><a href="/line_stations/<%= line.id() %>"><%= line.name() %></a></li>
+      <% end %>
+    </ul>
+    <% end %>
+  </div>
+
+  <div class ='col-xs-4 col-sm-6 L'>
+
+    <h1> Stations </h1>
+    <br>
+    <% if @stations == nil %>
+    <p>There are no lines yet!</p>
+    <% else %>
+    <ul>
+      <% @stations.each() do |station|  %>
+      <li><a href="/station_lines/<%= station.id() %>"><%= station.name() %></a></li>
+      <% end %>
+    </ul>
+    <% end %>
+  </div>
+</div>

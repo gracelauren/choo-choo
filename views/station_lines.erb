@@ -1,0 +1,28 @@
+<div class ='container'>
+
+  <h1>Lines for <%= @station.name() %> Station</h1>
+
+  <form action="/station_lines" method="get">
+    <input id='station_id' name='station_id' type='hidden' value='<%= @station.id() %>'>
+  </form>
+
+  <br>
+
+  <h2> The lines that go through this station are: </h2>
+
+  <% if @station.lines() == nil %>
+  <p>There are no lines yet!</p>
+  <% else %>
+  <ul>
+    <% @station.lines().each() do |line|  %>
+    <li><%= line.name() %></a></li>
+    <% end %>
+  </ul>
+  <% end %>
+  <br>
+
+
+  <div class="span7 text-center">
+    <a href="/rider"><button class="button button-back center btn">Return to Rider Page</a>
+    </div>
+  </div>

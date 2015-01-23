@@ -2,7 +2,8 @@ class Line
   attr_reader(:name, :id)
 
   define_method(:initialize) do |attributes|
-    @name = attributes.fetch(:name)
+    name = attributes.fetch(:name)
+    @name = name.split.map(&:capitalize).join(' ')
     @id = attributes[:id]
   end
 
@@ -35,7 +36,7 @@ class Line
   end
 
   define_method(:add_station) do |station|
-    DB.exec("INSERT INTO stops (station_id, line_id) VALUES (#{station.id()}, #{self.id()});")
+      DB.exec("INSERT INTO stops (station_id, line_id) VALUES (#{station.id()}, #{self.id()});")
   end
 
   define_method(:stations) do

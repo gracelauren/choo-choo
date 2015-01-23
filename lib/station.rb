@@ -2,7 +2,8 @@ class Station
   attr_reader(:name, :id)
 
   define_method(:initialize) do |attributes|
-    @name = attributes.fetch(:name)
+    name = attributes.fetch(:name)
+    @name = name.split.map(&:capitalize).join(' ')
     @id = attributes[:id]
   end
 

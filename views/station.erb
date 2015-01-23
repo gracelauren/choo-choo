@@ -1,35 +1,44 @@
-<h1>Add a line to <%= @station.name() %></h1>
+<div class ='container'>
+  <h1>Add a line to <%= @station.name() %></h1>
 
-<form action="/lines" method="post">
-  <input id='station_id' name='station_id' type='hidden' value='<%= @station.id() %>'>
-  <div class="form-group">
-    <label class = "form-label" for="line_id">Add line:</label>
-    <select class = "form-control" id="line_id" name="line_id">
-      <option value='' disabled selected style='display:none'>Please Choose</option>
-      <% Line.all().each() do |line| %>
-      <% if ! @station.lines().include?(line) %>
-      <option value="<%= line.id() %>"><%= line.name() %></option>
-      <% end %>
-      <% end %>
-    </select>
-  </div>
-  <button type="submit">Add Line</button>
-</form>
+  <form action="/lines" method="post">
+    <input id='station_id' name='station_id' type='hidden' value='<%= @station.id() %>'>
+    <div class="form-group">
+      <label class = "form-label" for="line_id">Add a line that goes through this station:</label>
+      <select class = "form-control input-lg" id="line_id" name="line_id">
+        <option value='' disabled selected style='display:none'>Please Choose</option>
+          <% Line.all().each() do |line| %>
+            <% if ! @station.lines().include?(line) %>
+              <option value="<%= line.id() %>"><%= line.name() %></option>
+            <% end %>
+          <% end %>
+      </select>
+    </div>
+    <div class="span7 text-center">
+      <button class = 'button' type="submit">Add Line</button>
+    </div>
+  </form>
 
 
-<br>
 
-  <% if @station.lines() == nil %>
-  <p>There are no lines yet!</p>
-  <% else %>
-  <ul>
-    <% @station.lines().each() do |line|  %>
-    <li><%= line.name() %></a></li>
-    <% end %>
-  </ul>
-  <% end %>
   <br>
 
-  <div class="span7 text-center">
-    <a href="/"><button class="button button-back center btn">Return to main page</a>
+  <h2> The lines that go through this station are: </h2>
+
+    <% if @station.lines() == nil %>
+    <p>There are no lines yet!</p>
+    <% else %>
+    <ul>
+      <% @station.lines().each() do |line|  %>
+      <li><%= line.name() %></a></li>
+      <% end %>
+    </ul>
+    <% end %>
+    <br>
+
+
+    <div class="span7 text-center">
+      <a href="/operator"><button class="button button-back center btn">Return to System Operator Page</a>
+      </div>
     </div>
+</div>

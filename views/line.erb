@@ -1,27 +1,44 @@
-<h1>Add a station to <%= @line.name() %></h1>
+<div class ='container'>
 
-<form action="/stations" method="post">
-  <input id='line_id' name='line_id' type='hidden' value='<%= @line.id() %>'>
+  <h1>Add a station to <%= @line.name() %></h1>
 
-  <div class="form-group">
-    <label class = "form-label" for='line_station'>Add a station to the line:</label>
-    <input class = "form-control" id = 'line_station' name = 'line_station' type='text' placeholder="Station" autofocus>
-  </div>
-  <button type="submit">Add Station</button>
-</form>
-<br>
+  <form action="/stations" method="post">
+    <input id='line_id' name='line_id' type='hidden' value='<%= @line.id() %>'>
 
-<% if @line.stations() == nil %>
-<p>There are no stations yet!</p>
-<% else %>
-<ul>
-  <% @line.stations().each() do |station|  %>
-  <li><%= station.name() %></a></li>
+    <div class="form-group">
+      <div class="form-group">
+        <label class = "form-label" for="station_id">Add a station for this line to stop at:</label>
+        <select class = "form-control input-lg" id="station_id" name="station_id">
+          <option value='' disabled selected style='display:none'>Please Choose</option>
+          <% Station.all().each() do |station| %>
+            <% if ! @line.stations().include?(station) %>
+              <option value="<%= station.id() %>"><%= station.name() %></option>
+            <% end %>
+          <% end %>
+        </select>
+      </div>
+      <div class="span7 text-center">
+        <button class= 'button' type="submit">Add Station</button>
+      </div>
+    </form>
+
+  <br>
+
+  <h2> This line stops at stations: </h2>
+
+  <% if @line.stations() == nil %>
+  <p>There are no stations yet!</p>
+  <% else %>
+  <ul>
+    <% @line.stations().each() do |station|  %>
+    <li><%= station.name() %></a></li>
+    <% end %>
+  </ul>
   <% end %>
-</ul>
-<% end %>
-<br>
+  <br>
 
-<div class="span7 text-center">
-  <a href="/"><button class="button button-back center btn">Return to main page</a>
+
+  <div class="span7 text-center">
+    <a href="/operator"><button class="button button-back center btn">Return to System Operator Page</a>
   </div>
+</div>

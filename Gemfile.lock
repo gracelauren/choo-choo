@@ -33,6 +33,8 @@ GEM
       rack-test
       sinatra (~> 1.4.0)
       tilt (~> 1.3)
+    sinatra-flash (0.3.0)
+      sinatra (>= 1.0.0)
     tilt (1.4.1)
 
 PLATFORMS
@@ -43,3 +45,4 @@ DEPENDENCIES
   rspec
   sinatra
   sinatra-contrib
+  sinatra-flash

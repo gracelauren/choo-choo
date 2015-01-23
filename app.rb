@@ -63,9 +63,23 @@ end
 post('/stations') do
   @stations = Station.all()
   station_id = params.fetch('station_id').to_i()
-  line_id = params.fetch('line_id').to_i()  
+  line_id = params.fetch('line_id').to_i()
   @line = Line.find(line_id)
   @station = Station.find(station_id)
   @line.add_station(@station)
   erb(:line)
+end
+
+get('/line_stations/:line_id') do
+  @stations = Station.all()
+  line_id = params.fetch('line_id').to_i()
+  @line = Line.find(line_id)
+  erb(:line_stations)
+end
+
+get('/station_lines/:station_id') do
+  @lines = Line.all()
+  station_id = params.fetch('station_id').to_i()
+  @station = Station.find(station_id)
+  erb(:station_lines)
 end
