@@ -92,12 +92,25 @@ describe(Line) do
   end
 
   describe('.remove_empty_name_entry')
-  it('deletes a line from the database where the user entered nothing into the string') do
-    test_line = Line.new({ :name => "Red" })
-    test_line.save()
-    test_line2 = Line.new({ :name => '' })
-    test_line2.save()
-    Line.remove_empty_name_entry()
-    expect(Line.all()).to(eq([test_line]))
+    it('deletes a line from the database where the user entered nothing into the string') do
+      test_line = Line.new({ :name => "Red" })
+      test_line.save()
+      test_line2 = Line.new({ :name => '' })
+      test_line2.save()
+      Line.remove_empty_name_entry()
+      expect(Line.all()).to(eq([test_line]))
+    end
   end
-end
+
+  describe('#stations_not_added') do
+    it("shows stations not yet added to line") do
+      test_station = Station.new({ :name => "Gemini" })
+      test_station.save()
+      test_station3 = Station.new({ :name => "Taurus" })
+      test_station3.save()
+      test_line = Line.new({ :name => "Red"})
+      test_line.save()
+      test_line.add_station(test_station)
+      expect(test_line.stations_not_added()).to(eq([test_station3]))
+    end
+  end

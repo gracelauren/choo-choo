@@ -1,26 +1,28 @@
 <div class ='container'>
   <p><a href="/lines/<%= @line.id() %>/edit">Click Here to Edit <%= @line.name() %> Line</a></p>
+  <% if !@line.stations().any? %>
+    <h1>Add a station to <%= @line.name() %></h1>
 
-  <h1>Add a station to <%= @line.name() %></h1>
+    <form action="/stations" method="post">
+      <input id='line_id' name='line_id' type='hidden' value='<%= @line.id() %>'>
 
-  <form action="/stations" method="post">
-    <input id='line_id' name='line_id' type='hidden' value='<%= @line.id() %>'>
-
-    <div class="form-group">
       <div class="form-group">
-        <label class = "form-label" for="station_id">Add a station for this line to stop at:</label>
-        <select class = "form-control input-lg" id="station_id" name="station_id">
-          <% Station.all().each() do |station| %>
-            <% if ! @line.stations().include?(station) %>
-              <option value="<%= station.id() %>"><%= station.name() %></option>
+        <div class="form-group">
+          <label class = "form-label" for="station_id">Add a station for this line to stop at:</label>
+          <select class = "form-control input-lg" id="station_id" name="station_id">
+            <% Station.all().each() do |station| %>
+              <% if ! @line.stations().include?(station) %>
+                <option value="<%= station.id() %>"><%= station.name() %></option>
+              <% end %>
             <% end %>
-          <% end %>
-        </select>
-      </div>
-      <div class="span7 text-center">
-        <button class= 'button' type="submit">Add Stop</button>
-      </div>
-    </form>
+          </select>
+        </div>
+        <div class="span7 text-center">
+          <button class= 'button' type="submit">Add Stop</button>
+        </div>
+      </form>
+    <% end %>
+
 
     <form action="/delete_station" method="post">
       <input name="_method" type="hidden" value="delete">

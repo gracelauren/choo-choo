@@ -72,4 +72,13 @@ class Line
     DB.exec("DELETE FROM lines WHERE name = '';")
   end
 
+  define_method(:stations_not_added) do
+    added = self.stations()
+    not_added = (Station.all() - added)
+    not_added
+puts("#{Station.all()}")
+puts("#{added}")
+
+  end
+
 end

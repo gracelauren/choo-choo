@@ -14,7 +14,7 @@
     <% else %>
     <ol>
       <% @line.stations().each() do |station|  %>
-      <li><%= station.name() %></a></li>
+      <li class='<%= station.id() %>'><%= station.name() %></a></li>
       <% end %>
     </ol>
     <% end %>
