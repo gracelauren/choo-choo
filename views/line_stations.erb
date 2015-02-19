@@ -12,11 +12,11 @@
     <% if @line.stations() == nil %>
     <p>There are no stations yet!</p>
     <% else %>
-    <ul>
+    <ol>
       <% @line.stations().each() do |station|  %>
       <li><%= station.name() %></a></li>
       <% end %>
-    </ul>
+    </ol>
     <% end %>
     <br>
 

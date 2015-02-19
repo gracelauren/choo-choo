@@ -7,33 +7,33 @@
     </div>
   </div>
 
-<div class = 'row containerLR'>
-  <div class ='col-xs-4 col-sm-6 R'>
+<div class = 'row'>
+  <div class ='col-xs-4 col-sm-6'>
     <h1> Lines </h1>
     <br>
     <% if @lines == nil %>
     <p>There are no lines yet!</p>
     <% else %>
-    <ul>
+    <ol>
       <% @lines.each() do |line|  %>
       <li><a href="/line_stations/<%= line.id() %>"><%= line.name() %></a></li>
       <% end %>
-    </ul>
+    </ol>
     <% end %>
   </div>
 
-  <div class ='col-xs-4 col-sm-6 L'>
+  <div class ='col-xs-4 col-sm-6'>
 
     <h1> Stations </h1>
     <br>
     <% if @stations == nil %>
     <p>There are no lines yet!</p>
     <% else %>
-    <ul>
+    <ol>
       <% @stations.each() do |station|  %>
       <li><a href="/station_lines/<%= station.id() %>"><%= station.name() %></a></li>
       <% end %>
-    </ul>
+    </ol>
     <% end %>
   </div>
 </div>

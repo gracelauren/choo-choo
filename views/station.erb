@@ -8,7 +8,6 @@
     <div class="form-group">
       <label class = "form-label" for="line_id">Add a line that goes through this station:</label>
       <select class = "form-control input-lg" id="line_id" name="line_id">
-        <option value='' disabled selected style='display:none'>Please Choose</option>
           <% Line.all().each() do |line| %>
             <% if ! @station.lines().include?(line) %>
               <option value="<%= line.id() %>"><%= line.name() %></option>
@@ -27,7 +26,6 @@
     <div class="form-group">
       <label class = "form-label" for="line_id">Remove a line from this station:</label>
       <select class = "form-control input-lg" id="line_id" name="line_id">
-        <option value='' disabled selected style='display:none'>Please Choose</option>
         <% @station.lines().each() do |line| %>
           <option value="<%= line.id() %>"><%= line.name() %></option>
         <% end %>

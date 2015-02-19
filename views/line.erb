@@ -10,7 +10,6 @@
       <div class="form-group">
         <label class = "form-label" for="station_id">Add a station for this line to stop at:</label>
         <select class = "form-control input-lg" id="station_id" name="station_id">
-          <option value=" " disabled selected style='display:none'>Please Choose</option>
           <% Station.all().each() do |station| %>
             <% if ! @line.stations().include?(station) %>
               <option value="<%= station.id() %>"><%= station.name() %></option>
@@ -29,7 +28,6 @@
       <div class="form-group">
         <label class = "form-label" for="station_id">Remove a stop from this line:</label>
         <select class = "form-control input-lg" id="station_id" name="station_id">
-          <option value="" disabled selected style='display:none'>Please Choose</option>
           <% @line.stations().each() do |station| %>
           <option value="<%= station.id() %>"><%= station.name() %></option>
           <% end %>
