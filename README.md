@@ -45,7 +45,7 @@ todo=# CREATE TABLE stations (id serial PRIMARY KEY, name varchar);
 ```
 
 ```
-CREATE TABLE stops (id serial PRIMARY KEY, station_id int, line_id int);
+todo=# CREATE TABLE stops (id serial PRIMARY KEY, station_id int, line_id int);
 ```
 
 ```
