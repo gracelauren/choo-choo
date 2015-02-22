@@ -1,31 +1,5 @@
-class Line
-  attr_reader(:name, :id)
-
-  define_method(:initialize) do |attributes|
-    name = attributes.fetch(:name)
-    @name = name.split.map(&:capitalize).join(' ')
-    @id = attributes[:id]
-  end
-
-  define_singleton_method(:all)  do
-    lines = []
-    returned_lines = DB.exec("SELECT * FROM lines ORDER BY name;")
-    returned_lines.each() do |line|
-      id = line.fetch("id").to_i()
-      name = line.fetch("name")
-      lines.push(Line.new({ :name => name, :id => id }))
-    end
-    lines
-  end
-
-  define_method(:save) do
-    result= DB.exec("INSERT INTO lines (name) VALUES ('#{@name}') RETURNING id;")
-    @id = result.first().fetch('id').to_i()
-  end
-
-  define_method(:==) do |another_name|
-    self.name() == another_name.name() && self.id() == another_name.id()
-  end
+class Line < ActiveRecord::Base
+  
 
   define_singleton_method(:find) do |id|
     Line.all().each() do |line|
