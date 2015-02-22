@@ -1,5 +1,5 @@
 class Station < ActiveRecord::Base
-  validates(:station, {:presence => true})
+  validates(:name, {:presence => true})
   has_and_belongs_to_many(:lines, {:uniq => true })
   before_save(:capitalize_name)
   validates_uniqueness_of :name
