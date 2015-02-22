@@ -1,116 +1,28 @@
 require("spec_helper")
 
 describe(Line) do
-  describe("#name") do
-    it("return the name of the line") do
-      test_line = Line.new({ :name => "Red" })
-      expect(test_line.name()).to(eq("Red"))
-    end
+  it{ should have_and_belong_to_many(:stations)}
+  it{ should validate_presence_of(:name)}
+  it{ should validate_uniqueness_of(:name)}
+
+  it("will capitalize the name of a line") do
+    line1= Line.create({ :name => "red" })
+    expect(line1.name()).to eq("Red")
   end
 
-  describe('.all') do
-    it('is empty at first') do
-      expect(Line.all()).to(eq([]))
-    end
-  end
-
-  describe("#save") do
-    it("saves the new line into the array of lines") do
-      test_line = Line.new({ :name => "Red" })
-      test_line.save()
-      expect(Line.all()).to(eq([test_line]))
-    end
-  end
-
-  describe('#==') do
-    it('returns the lines as equal if the name and the id are the same') do
-      test_line = Line.new({ :name => "Red" })
-      test_line2 = Line.new({ :name => "Red" })
-      expect(test_line).to(eq(test_line2))
-    end
-  end
-
-  describe(".find") do
-    it("will find a line by its id") do
-      test_line = Line.new({ :name => "Red" })
-      test_line.save()
-      test_line2 = Line.new({ :name => "Yellow" })
-      test_line2.save()
-      expect(Line.find(test_line.id())).to(eq(test_line))
-    end
-  end
-
-  describe('#stations') do
-    it('returns the stations each line goes to') do
-      test_line = Line.new({ :name => "Red" })
-      test_line.save()
-      test_station = Station.new({ :name => "Gemini" })
-      test_station2 = Station.new({ :name => "Virgo" })
-      test_station.save()
-      test_station2.save()
-      test_line.add_station(test_station)
-      test_line.add_station(test_station2)
-      expect(test_line.stations()).to(eq([test_station, test_station2]))
-    end
-  end
-
-  describe("#update") do
-    it("lets you update lines in the database") do
-      test_line = Line.new({ :name => "Red" })
-      test_line.save()
-      test_line.update({ :name => "Yellow" })
-      expect(test_line.name()).to(eq("Yellow"))
-    end
-  end
-
-  describe('#delete') do
-    it('lets you delete a line from the database') do
-      test_line = Line.new({ :name => "Red" })
-      test_line.save()
-      test_line2 = Line.new({ :name => "Yellow" })
-      test_line2.save()
-      test_line.delete()
-      expect(Line.all()).to(eq([test_line2]))
-    end
-  end
-
-  describe('#remove_station_connection') do
-    it("removes connection entry from stops table") do
-      test_station = Station.new({ :name => "Gemini" })
-      test_station.save()
-      test_station2 = Station.new({ :name => "Taurus" })
-      test_station2.save()
-      test_line = Line.new({ :name => "Red"})
-      test_line.save()
-      test_line2 = Line.new({ :name => "Yellow"})
-      test_line2.save()
-      test_line.add_station(test_station)
-      test_line.add_station(test_station2)
-      test_line.remove_station_connection(test_station)
-      expect(test_line.stations()).to(eq([test_station2]))
-    end
-  end
-
-  describe('.remove_empty_name_entry')
-    it('deletes a line from the database where the user entered nothing into the string') do
-      test_line = Line.new({ :name => "Red" })
-      test_line.save()
-      test_line2 = Line.new({ :name => '' })
-      test_line2.save()
-      Line.remove_empty_name_entry()
-      expect(Line.all()).to(eq([test_line]))
-    end
+  it("will order the lines alphabetically") do
+    line2= Line.create({:name => "Green" })
+    line1= Line.create({:name => "Red" })
+    expect(Line.all()).to eq([line2, line1])
   end
 
   describe('#stations_not_added') do
-    it("shows stations not yet added to line") do
-      test_station = Station.new({ :name => "Gemini" })
-      test_station.save()
-      test_station3 = Station.new({ :name => "Taurus" })
-      test_station3.save()
-      test_line = Line.new({ :name => "Red"})
-      test_line.save()
-      test_line.add_station(test_station)
-      expect(test_line.stations_not_added()).to(eq([test_station3]))
+    it("display stations not added") do
+      line1= Line.create({:name => "Bob Dylan" })
+      station1= Station.create({ :name => "Birdmont"})
+      station2= Station.create({ :name => "Kenzington"})
+      line1.stations.push(station1)
+      expect(line1.stations_not_added()).to eq([station2])
     end
   end
+end
