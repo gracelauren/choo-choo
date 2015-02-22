@@ -212,7 +212,7 @@ p:nth-child(2) a:hover{
 
 p:nth-child(3) a{
   color:#FFDD1B;
-  font-family:Pacifico;
+  font-family:'Exo', sans-serif;;
 }
 p:nth-child(3) a:hover{
   -webkit-animation: neon3 1.5s ease-in-out infinite alternate;
@@ -255,6 +255,72 @@ p:nth-child(6) a:hover{
 
 p a:hover{
   color:#ffffff;
+}
+
+h1.warning{
+  padding-bottom: 50px;
+}
+
+.warning {
+  font-size:1.5em;
+  color:#FF1177;
+  font-family:'Exo', sans-serif;
+  text-align: center;
+}
+
+form.update {
+  font-size:1em;
+  color:#FF1177;
+  font-family:'Exo', sans-serif;
+  text-align: center;
+}
+
+.update input {
+  outline:none;
+  background:transparent;
+  border:none;
+  border-bottom:2px solid cornflowerblue;
+  color:gray;
+}
+
+.update input[type="submit"] {
+  padding:20px;
+  width:auto;
+  border:2px solid cornflowerblue;
+  color:cornflowerblue;
+  cursor:pointer;
+  font-family:tahoma;
+}
+
+.update input[type="submit"]:hover {
+  background:cornflowerblue;
+  color:white;
+}
+
+button.warning {
+  margin-top: 20px;
+  font-size:1em;
+  color:#FF1177;
+  background: #222222;
+  font-family:'Exo', sans-serif;
+}
+
+button.warning:hover{
+  -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon1 1.5s ease-in-out infinite alternate;
+  animation: neon1 1.5s ease-in-out infinite alternate;
+}
+
+p.return a{
+  color:#FFDD1B;
+  font-family:'Exo', sans-serif;
+  font-size:.5em;
+}
+
+p.return a:hover{
+  -webkit-animation: neon3 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon3 1.5s ease-in-out infinite alternate;
+  animation: neon3 1.5s ease-in-out infinite alternate;
 }
 
 
