@@ -1,8 +1,8 @@
 <div class ='container'>
   <p><a href="/stations/<%= @station.id() %>/edit">Click Here to Edit <%= @station.name() %> Station</a></p>
 
+  <% if @station.lines_not_added().any? %>
   <h1>Add a line to <%= @station.name() %></h1>
-
   <form action="/lines" method="post">
     <input id='station_id' name='station_id' type='hidden' value='<%= @station.id() %>'>
     <div class="form-group">
@@ -19,7 +19,9 @@
       <button class = 'button' type="submit">Add Line</button>
     </div>
   </form>
+  <% end %>
 
+  <% if @station.lines().any? %>
   <form action="/delete_line" method="post">
     <input name="_method" type="hidden" value="delete">
     <input type='hidden' value='<%= @station.id() %>' name='station_id'>
@@ -35,6 +37,8 @@
       <button type="submit" value="delete" class="button btn-danger">Remove Line</button>
     </div>
   </form>
+  <% end %>
+  
 
 
   <br>
