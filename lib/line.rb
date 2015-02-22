@@ -71,13 +71,13 @@ class Line
   define_singleton_method(:remove_empty_name_entry) do
     DB.exec("DELETE FROM lines WHERE name = '';")
   end
-
-  define_method(:stations_not_added) do
-    added = self.stations()
-    not_added = (Station.all() - added)
-    not_added
-puts("#{Station.all()}")
-puts("#{added}")
+# 
+#   define_method(:stations_not_added) do
+#     added = self.stations()
+#     not_added = (Station.all() - added)
+#     not_added
+# puts("#{Station.all()}")
+# puts("#{added}")
 
   end
 
