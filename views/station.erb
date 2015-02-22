@@ -1,5 +1,4 @@
 <div class ='container'>
-  <p><a href="/stations/<%= @station.id() %>/edit">Click Here to Edit <%= @station.name() %> Station</a></p>
 
   <% if @station.lines_not_added().any? %>
   <h1>Add a line to <%= @station.name() %></h1>
@@ -58,6 +57,7 @@
 
 
     <div class="span7 text-center">
+      <p class="warning"><a href="/stations/<%= @station.id() %>/edit">Click Here to Edit <%= @station.name() %> Station</a></p>
       <p class="return"><a href="/operator">Return to the System Operator Page</a></p>
     </div>
 </div>
