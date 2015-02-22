@@ -1,15 +1,22 @@
-require('rspec')
-require('pg')
-require('./lib/line')
-require('./lib/station')
-require('pry')
+ENV['RACK_ENV'] = 'test'
 
-DB = PG.connect({ :dbname => 'train_system_test' })
+require("bundler/setup")
+Bundler.require(:default, :test)
+
+Dir[File.dirname(__FILE__) + '/../lib/*.rb'].each { |file| require file }
+
+
 
 RSpec.configure do |config|
   config.after(:each) do
-    DB.exec("DELETE FROM lines *;")
-    DB.exec("DELETE FROM stations *;")
-    DB.exec("DELETE FROM stops *;")
+    Ingredient.all().each() do |ingredient|
+      ingredient.destroy()
+    end
+    Recipe.all().each() do |recipe|
+      recipe.destroy()
+    end
+    Category.all().each() do |thing| # `category` appears to be a reserved word in Rspec
+      thing.destroy()
+    end
   end
 end

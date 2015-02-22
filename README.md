@@ -1,9 +1,9 @@
 Train System DB
 ================
 
-by Grace Mekarski and Karvari Ellingson
+by Grace Mekarski
 
-Train System DB is a website that uses a database and Sinatra to allow train operators and passengers to track train lines and stations.
+Train System DB is a website that uses a Active Record and Sinatra to allow train operators and passengers to track train lines and stations.
 
 Installation
 ------------
@@ -25,32 +25,19 @@ $ postgres
 
 Create the databases and tables:
 ```
-# psql
+$ rake db:create
 ```
 
 ```
-username=# CREATE DATABASE train_system;
+$ rake db:schema:load
+
 ```
 
 ```
-username=# \c train_system;
-```
+$ rake db:test:prepare
 
 ```
-todo=# CREATE TABLE lines (id serial PRIMARY KEY, name varchar);
-```
 
-```
-todo=# CREATE TABLE stations (id serial PRIMARY KEY, name varchar);
-```
-
-```
-todo=# CREATE TABLE stops (id serial PRIMARY KEY, station_id int, line_id int);
-```
-
-```
-todo=# CREATE DATABASE train_system_test WITH TEMPLATE train_system;
-```
 
 Start the webserver:
 ```
@@ -58,8 +45,9 @@ $ ruby app.rb
 ```
 
 In your web browser, go to http://localhost:4567
+```
 
 License
 -------
 
-GNU GPL v2. Copyright 2015 Karvari Ellingson and Grace Mekarski
+GNU GPL v2. Copyright 2015 Grace Mekarski

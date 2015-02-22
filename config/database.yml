@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: train_system_development
+
+test:
+  adapter: postgresql
+  database: train_system_test
