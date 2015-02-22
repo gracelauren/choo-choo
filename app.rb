@@ -1,12 +1,7 @@
-require("sinatra")
-require("sinatra/reloader")
-also_reload("lib/**/*.rb")
-require("./lib/line")
-require("./lib/station")
-require("pg")
-require("pry")
+require("bundler/setup")
+Bundler.require(:default)
 
-DB = PG.connect({ :dbname => "train_system" })
+Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 
 get('/') do
   erb(:index)

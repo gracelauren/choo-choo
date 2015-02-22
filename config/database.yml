@@ -1,7 +1,10 @@
 development:
   adapter: postgresql
   database: train_system_development
+  template: template0
+
 
 test:
   adapter: postgresql
   database: train_system_test
+  template: template0
