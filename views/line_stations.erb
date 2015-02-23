@@ -1,6 +1,6 @@
 <div class ='container'>
 
-  <h1>Stops for <%= @line.name() %> Line</h1>
+  <h1 class="rider">Stops for <%= @line.name() %> Line</h1>
 
   <form action="/line_stations" method="get">
     <input id='line_id' name='line_id' type='hidden' value='<%= @line.id() %>'>
@@ -10,7 +10,7 @@
 
 
     <% if @line.stations() == nil %>
-    <p>There are no stations yet!</p>
+    <p class="rider">There are no stations yet!</p>
     <% else %>
     <ol>
       <% @line.stations().each() do |station|  %>

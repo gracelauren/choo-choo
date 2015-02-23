@@ -1,56 +1,57 @@
 <div class ='container'>
-  <h1>Hello System Operator!</h1>
-  <h3>Please make your changes here:</h3>
+  <h1 class="operator">Hello System Operator!</h1>
+  <h3 class="operator">Please make your changes here:</h3>
 
-  <div class="span7 text-center">
-    <a href="/"><button class="button button-back center btn">Return to main page</a>
+
+  <div class = 'row'>
+    <div class ='col-xs-4 col-sm-6'>
+      <h3 class="add">Enter the name of your new station:</h3>
+      <form action="/station" method="post">
+        <input type="text" name="station_name">
+        <label for="station_name"></label>
+        <div class="span7 text-center">
+          <button class= 'button add' type="submit">Add Station</button>
+        </div>
+      </form>
+      <br>
+      <h2 class="operator">Stations</h2>
+      <% if @stations == nil %>
+        <p class="warning">There are no stations yet!</p>
+      <% else %>
+        <ul>
+          <% @stations.each() do |station|  %>
+          <li class='<%= station.id() %>'><a href="/station/<%= station.id() %>"><%= station.name() %></a></li>
+          <% end %>
+        </ul>
+      <% end %>
     </div>
+
+
+
+    <div class ='col-xs-4 col-sm-6'>
+      <h3 class="add">Enter the name of your new line:</h3>
+      <form action="/line" method="post">
+        <input type="text" name="line_name">
+        <label for="line_name"></label>
+        <div class="span7 text-center">
+          <button class='button add' type="submit">Add Line</button>
+        </div>
+      </form>
+      <br>
+      <h2 class="operator">Lines</h2>
+      <% if @lines == nil %>
+        <p class="warning">There are no lines yet!</p>
+      <% else %>
+        <ul>
+          <% @lines.each() do |line|  %>
+          <li class='<%= line.id() %>'><a href="/line/<%= line.id() %>"><%= line.name() %></a></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+
+<div class="span7 text-center">
+  <p class="return"><a href="/">Click here to return to the Main Page</a></p>
 </div>
-
-<div class = 'row'>
-  <div class ='col-xs-4 col-sm-6'>
-    <h3>Enter the name of your new station:</h3>
-    <form action="/station" method="post">
-      <input type="text" name="station_name">
-      <label for="station_name"></label>
-      <div class="span7 text-center">
-        <button class= 'button center btn' type="submit">Add Station</button>
-      </div>
-    </form>
-    <br>
-    <h2>Stations</h2>
-    <% if @stations == nil %>
-      <p>There are no stations yet!</p>
-    <% else %>
-      <ul>
-        <% @stations.each() do |station|  %>
-        <li class='<%= station.id() %>'><a href="/station/<%= station.id() %>"><%= station.name() %></a></li>
-        <% end %>
-      </ul>
-    <% end %>
-  </div>
-
-
-
-  <div class ='col-xs-4 col-sm-6'>
-    <h3>Enter the name of your new line:</h3>
-    <form action="/line" method="post">
-      <input type="text" name="line_name">
-      <label for="line_name"></label>
-      <div class="span7 text-center">
-        <button class='button center btn' type="submit">Add Line</button>
-      </div>
-    </form>
-    <br>
-    <h2>Lines</h2>
-    <% if @lines == nil %>
-      <p>There are no lines yet!</p>
-    <% else %>
-      <ul>
-        <% @lines.each() do |line|  %>
-        <li class='<%= line.id() %>'><a href="/line/<%= line.id() %>"><%= line.name() %></a></li>
-        <% end %>
-      </ul>
-    <% end %>
-  </div>
 </div>

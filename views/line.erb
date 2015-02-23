@@ -1,7 +1,7 @@
 <div class ='container'>
 
-  <% if @line.stations_not_added().any? %>
-    <h1 class="operator">Add a station to <%= @line.name() %></h1>
+    <h1 class="operator">Add or remove a station to <%= @line.name() %></h1>
+    <% if @line.stations_not_added().any? %>
     <form action="/stations" method="post" class="add">
       <input id='line_id' name='line_id' type='hidden' value='<%= @line.id() %>'>
       <div class="form-group">
