@@ -845,8 +845,8 @@ li:nth-child(6)::before {
   border: 4px solid #BA01FF;
 }
 li:nth-child(1)a:hover {
-  border-color:  neon4 1.5s ease-in-out infinite alternate;
-  -webkit-animation: neon4 1.5s ease-in-out infinite alternate;
+  border-color:  neon2 1.5s ease-in-out infinite alternate;
+  -webkit-animation: neon2 1.5s ease-in-out infinite alternate;
   -moz-animation: neon2 1.5s ease-in-out infinite alternate;
   animation: neon2 1.5s ease-in-out infinite alternate}
 li:nth-child(2)a:hover {
@@ -855,9 +855,9 @@ li:nth-child(2)a:hover {
   -moz-animation: neon4 1.5s ease-in-out infinite alternate;
   animation: neon4 1.5s ease-in-out infinite alternate}
 li:nth-child(3)a:hover {
-  border-color: neon4 1.5s ease-in-out infinite alternate;
-  -webkit-animation: neon4 1.5s ease-in-out infinite alternate;
-  -moz-animation: neon4 1.5s ease-in-out infinite alternate;
+  border-color: neon3 1.5s ease-in-out infinite alternate;
+  -webkit-animation: neon3 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon3 1.5s ease-in-out infinite alternate;
   animation: neon3 1.5s ease-in-out infinite alternate}
 li:nth-child(4)a:hover {
   border-color: neon4 1.5s ease-in-out infinite alternate;
@@ -865,14 +865,45 @@ li:nth-child(4)a:hover {
   -moz-animation: neon4 1.5s ease-in-out infinite alternate;
   animation: neon5 1.5s ease-in-out infinite alternate}
 li:nth-child(5)a:hover {
+  border-color: neon1 1.5s ease-in-out infinite alternate;
+  -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon1 1.5s ease-in-out infinite alternate;
+  animation: neon1 1.5s ease-in-out infinite alternate}
+li:nth-child(6)a:hover {
+  border-color:  neon6 1.5s ease-in-out infinite alternate;
+  -webkit-animation: neon6 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon6 1.5s ease-in-out infinite alternate;
+  animation: neon6 1.5s ease-in-out infinite alternate}
+
+a:nth-child(1):hover {
+  border-color:  neon2 1.5s ease-in-out infinite alternate;
+  -webkit-animation: neon2 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon2 1.5s ease-in-out infinite alternate;
+  animation: neon2 1.5s ease-in-out infinite alternate}
+a:nth-child(2):hover {
   border-color: neon4 1.5s ease-in-out infinite alternate;
   -webkit-animation: neon4 1.5s ease-in-out infinite alternate;
   -moz-animation: neon4 1.5s ease-in-out infinite alternate;
+  animation: neon4 1.5s ease-in-out infinite alternate}
+a:nth-child(3):hover {
+  border-color: neon3 1.5s ease-in-out infinite alternate;
+  -webkit-animation: neon3 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon3 1.5s ease-in-out infinite alternate;
+  animation: neon3 1.5s ease-in-out infinite alternate}
+a:nth-child(4):hover {
+  border-color: neon5 1.5s ease-in-out infinite alternate;
+  -webkit-animation: neon5 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon5 1.5s ease-in-out infinite alternate;
+  animation: neon5 1.5s ease-in-out infinite alternate}
+a:nth-child(5):hover {
+  border-color: neon1 1.5s ease-in-out infinite alternate;
+  -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon1 1.5s ease-in-out infinite alternate;
   animation: neon1 1.5s ease-in-out infinite alternate}
-li:nth-child(6)a:hover {
-  border-color:  neon4 1.5s ease-in-out infinite alternate;
-  -webkit-animation: neon4 1.5s ease-in-out infinite alternate;
-  -moz-animation: neon4 1.5s ease-in-out infinite alternate;
+a:nth-child(6):hover {
+  border-color:  neon6 1.5s ease-in-out infinite alternate;
+  -webkit-animation: neon6 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon6 1.5s ease-in-out infinite alternate;
   animation: neon6 1.5s ease-in-out infinite alternate}
 /*li aside {
   display: none;
@@ -905,7 +936,7 @@ li a:hover {
   cursor: pointer;
 }
 
-li:hover aside {
+/*li:hover aside {
   display: block;
   color: #0c559e;
-}
+}*/
