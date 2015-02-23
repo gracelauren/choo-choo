@@ -1,5 +1,5 @@
 <div class = 'container'>
-  <h1 class="warning">Update the <%=@station.name() %> Station </h1>
+  <h1 class="operator">Update the <%=@station.name() %> Station </h1>
 
   <form action="/stations/<%= @station.id() %>" method="post" class="update">
     <input name="_method" type="hidden" value="patch">
@@ -7,12 +7,9 @@
     <br>
     <input id="name" name="name" type="text">
     <br>
-    <button class="button warning" type="submit">Rename</button>
+    <button class="button update" type="submit">Rename</button>
   </form>
-
   <br>
-  <br>
-
   <form action="/stations/<%= @station.id() %>" method="post">
     <input name="_method" type="hidden" value="delete">
     <div class="span7 text-center">
@@ -22,6 +19,6 @@
 </div>
 
 <div class="span7 text-center">
-  <p class="return"><a href="/station/<%= @station.id() %>">Return to the <%=@station.name() %> Station</a></p>
+  <p class="return"><a href="/station/<%= @station.id() %>">Click here to return to the <%=@station.name() %> Station</a></p>
   </div>
 </div>

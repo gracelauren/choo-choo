@@ -34,7 +34,9 @@ img { border: none; }
 
 
 ul{
-  margin-left: 70px;
+  margin-left: 50%;
+  color:gray;
+
 }
 
 footer {
@@ -158,39 +160,57 @@ p a:hover{
   color:#ffffff;
 }
 
-h1.warning{
+.operator{
+  color:#228DFF;
+  font-family:'Exo', sans-serif;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+h1.operator{
+  font-size:1.5em;
+}
+
+h2.operator{
+  font-size:1em;
+}
+
+
+button.add {
+  margin-top: 20px;
+  font-size:1em;
+  color:#B6FF00;
+  background: #222222;
+  font-family:'Exo', sans-serif;
+}
+
+button.add:hover{
+  -webkit-animation: neon4 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon4 1.5s ease-in-out infinite alternate;
+  animation: neon4 1.5s ease-in-out infinite alternate;
+}
+
+
+h1.add{
   padding-bottom: 50px;
   font-size:1.5em;
+  color:#B6FF00;
+  font-family:'Exo', sans-serif;
 
 }
 
-form.update {
+form.add {
   font-size:1em;
-  color:#FF1177;
+  color:#B6FF00;
   font-family:'Exo', sans-serif;
   text-align: center;
 }
 
-.update input {
-  outline:none;
-  background:transparent;
-  border:none;
-  border-bottom:2px solid #228DFF;
-  color:gray;
-}
-
-.update input[type="submit"] {
-  padding:20px;
-  width:auto;
-  border:2px solid #228DFF;
-  color:#228DFF;
-  cursor:pointer;
+form.warning {
+  font-size:1em;
+  color:#FF1177;
   font-family:'Exo', sans-serif;
-}
-
-.update input[type="submit"]:hover {
-  background:#228DFF;
-  color:white;
+  text-align: center;
 }
 
 .warning {
@@ -214,6 +234,63 @@ button.warning:hover{
   animation: neon1 1.5s ease-in-out infinite alternate;
 }
 
+p.warning a{
+  color:#FF1177;
+  font-family:'Exo', sans-serif;
+  font-size:1.2em;
+}
+
+p.warning a:hover{
+  -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon1 1.5s ease-in-out infinite alternate;
+  animation: neon1 1.5s ease-in-out infinite alternate;
+}
+
+
+button.update {
+  margin-top: 20px;
+  font-size:1em;
+  color:#FF9900;
+  background: #222222;
+  font-family:'Exo', sans-serif;
+}
+
+button.update:hover{
+  -webkit-animation: neon5 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon5 1.5s ease-in-out infinite alternate;
+  animation: neon5 1.5s ease-in-out infinite alternate;
+}
+
+form.update {
+  font-size:1em;
+  color:#FF9900;
+  font-family:'Exo', sans-serif;
+  text-align: center;
+}
+
+input {
+  outline:none;
+  background:transparent;
+  border:none;
+  border-bottom:2px solid #228DFF;
+  color:gray;
+}
+
+input[type="submit"] {
+  padding:20px;
+  width:auto;
+  border:2px solid #228DFF;
+  color:#228DFF;
+  cursor:pointer;
+  font-family:'Exo', sans-serif;
+}
+
+input[type="submit"]:hover {
+  background:#228DFF;
+  color:white;
+}
+
+
 p.return a{
   color:#FFDD1B;
   font-family:'Exo', sans-serif;
@@ -225,6 +302,8 @@ p.return a:hover{
   -moz-animation: neon3 1.5s ease-in-out infinite alternate;
   animation: neon3 1.5s ease-in-out infinite alternate;
 }
+
+
 
 
 
@@ -661,8 +740,6 @@ p.return a:hover{
 
 /*Station/Line ol*/
 
-
-/* ---- Timeline ---- */
 ol {
   position: relative;
   display: block;
@@ -673,7 +750,7 @@ ol {
   width: 0px;
   background: #9b2;
 }
-/* ---- Timeline elements ---- */
+/* ---- Station/Line ol elements ---- */
 li {
   position: relative;
   top: 2.5em;

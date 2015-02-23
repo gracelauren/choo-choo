@@ -1,8 +1,8 @@
 <div class ='container'>
 
   <% if @station.lines_not_added().any? %>
-  <h1>Add a line to <%= @station.name() %></h1>
-  <form action="/lines" method="post">
+  <h1 class="operator">Add or remove a line to <%= @station.name() %></h1>
+  <form action="/lines" method="post" class="add">
     <input id='station_id' name='station_id' type='hidden' value='<%= @station.id() %>'>
     <div class="form-group">
       <label class = "form-label" for="line_id">Add a line that goes through this station:</label>
@@ -15,13 +15,13 @@
       </select>
     </div>
     <div class="span7 text-center">
-      <button class = 'button' type="submit">Add Line</button>
+      <button class = 'button add' type="submit">Add Line</button>
     </div>
   </form>
   <% end %>
 
   <% if @station.lines().any? %>
-  <form action="/delete_line" method="post">
+  <form action="/delete_line" method="post" class="warning">
     <input name="_method" type="hidden" value="delete">
     <input type='hidden' value='<%= @station.id() %>' name='station_id'>
     <div class="form-group">
@@ -33,7 +33,7 @@
       </select>
     </div>
     <div class="span7 text-center">
-      <button type="submit" value="delete" class="button btn-danger">Remove Line</button>
+      <button type="submit" value="delete" class="button warning">Remove Line</button>
     </div>
   </form>
   <% end %>
@@ -42,7 +42,7 @@
 
   <br>
 
-  <h2> The lines that go through this station are: </h2>
+  <h2 class="operator"> The lines that go through this station are: </h2>
 
     <% if @station.lines() == nil %>
     <p>There are no lines yet!</p>
@@ -57,7 +57,7 @@
 
 
     <div class="span7 text-center">
-      <p class="warning"><a href="/stations/<%= @station.id() %>/edit">Click Here to Edit <%= @station.name() %> Station</a></p>
-      <p class="return"><a href="/operator">Return to the System Operator Page</a></p>
+      <p class="warning"><a href="/stations/<%= @station.id() %>/edit">Click here to edit <%= @station.name() %> Station</a></p>
+      <p class="return"><a href="/operator">Click here to return to the System Operator Page</a></p>
     </div>
 </div>

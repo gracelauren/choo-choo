@@ -1,8 +1,8 @@
 <div class ='container'>
 
   <% if @line.stations_not_added().any? %>
-    <h1>Add a station to <%= @line.name() %></h1>
-    <form action="/stations" method="post">
+    <h1 class="operator">Add a station to <%= @line.name() %></h1>
+    <form action="/stations" method="post" class="add">
       <input id='line_id' name='line_id' type='hidden' value='<%= @line.id() %>'>
       <div class="form-group">
         <div class="form-group">
@@ -16,13 +16,13 @@
           </select>
         </div>
         <div class="span7 text-center">
-          <button class= 'button' type="submit">Add Stop</button>
+          <button class='button add' type="submit">Add Stop</button>
         </div>
       </form>
     <% end %>
 
     <% if @line.stations().any? %>
-    <form action="/delete_station" method="post">
+    <form action="/delete_station" method="post" class="warning">
       <input name="_method" type="hidden" value="delete">
       <input type='hidden' value='<%= @line.id() %>' name='line_id'>
       <div class="form-group">
@@ -34,7 +34,7 @@
         </select>
       </div>
       <div class="span7 text-center">
-        <button type="submit" value="delete" class="button btn-danger">Remove Stop</button>
+        <button type="submit" value="delete" class="button warning">Remove Stop</button>
       </div>
     </form>
     <% end %>
@@ -42,23 +42,23 @@
 
   <br>
 
-  <h2> This line stops at stations: </h2>
+  <h2 class="operator"> This line stops at stations: </h2>
 
   <% if @line.stations() == nil %>
   <p>There are no stations yet!</p>
   <% else %>
-  <ul>
+  <ol>
     <% @line.stations().each() do |station|  %>
     <li><%= station.name() %></a></li>
     <% end %>
-  </ul>
+  </ol>
   <% end %>
   <br>
 
 
   <div class="span7 text-center">
     <p class="warning"><a href="/lines/<%= @line.id() %>/edit">Click Here to Edit <%= @line.name() %> Line</a></p>
-    
+
     <p class="return"><a href="/operator">Return to the System Operator Page</a></p>
   </div>
 </div>
