@@ -42,11 +42,10 @@
 
   <br>
 
+  <% if !@station.lines().any? %>
+  <p>There are no lines yet!</p>
+  <% else %>
   <h2 class="operator"> The lines that go through this station are: </h2>
-
-    <% if @station.lines() == nil %>
-    <p>There are no lines yet!</p>
-    <% else %>
     <ul>
       <% @station.lines().each() do |line|  %>
       <li><%= line.name() %></a></li>

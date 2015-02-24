@@ -9,7 +9,7 @@
 
 
 
-  <% if @station.lines() == nil %>
+  <% if !@station.lines().any? %>
   <p class="rider">There are no lines yet!</p>
   <% else %>
   <ul>
