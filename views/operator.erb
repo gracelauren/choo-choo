@@ -16,12 +16,13 @@
       </form>
       <br>
       <h2 class="operator">Stations</h2>
-      <% if @stations == nil %>
+      <% if !@stations.any? %>
         <p class="warning">There are no stations yet!</p>
       <% else %>
         <ul>
           <% @stations.each() do |station|  %>
-          <li class='<%= station.id() %>'><a href="/station/<%= station.id() %>"><%= station.name() %></a></li>
+          <li><a href="/station/<%= station.id() %>"><%= station.name() %></a></li>
+          <!-- took out this from li class='<%= station.id() %>' -->
           <% end %>
         </ul>
       <% end %>
@@ -40,12 +41,13 @@
       </form>
       <br>
       <h2 class="operator">Lines</h2>
-      <% if @lines == nil %>
+      <% if !@lines.any? %>
         <p class="warning">There are no lines yet!</p>
       <% else %>
         <ul>
           <% @lines.each() do |line|  %>
-          <li class='<%= line.id() %>'><a href="/line/<%= line.id() %>"><%= line.name() %></a></li>
+          <li><a href="/line/<%= line.id() %>"><%= line.name() %></a></li>
+          <!-- took out this from li class='<%= line.id() %>' -->
           <% end %>
         </ul>
       <% end %>

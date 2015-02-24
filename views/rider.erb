@@ -8,7 +8,7 @@
     <div class ='col-xs-4 col-sm-6'>
       <h2 class="rider"> Lines </h1>
       <br>
-      <% if @lines == nil %>
+      <% if !@lines.any? %>
       <p class="warning">There are no lines yet!</p>
       <% else %>
       <ol>
@@ -23,7 +23,7 @@
 
       <h2 class="rider"> Stations </h1>
       <br>
-      <% if @stations == nil %>
+      <% if !@stations.any? %>
       <p class="warning">There are no lines yet!</p>
       <% else %>
       <ol>
