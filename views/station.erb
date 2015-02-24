@@ -43,7 +43,7 @@
   <br>
 
   <% if !@station.lines().any? %>
-  <p>There are no lines yet!</p>
+  <p class="warning">There are no lines yet!</p>
   <% else %>
   <h2 class="operator"> The lines that go through this station are: </h2>
     <ul>
@@ -56,7 +56,7 @@
 
 
     <div class="span7 text-center">
-      <p class="warning"><a href="/stations/<%= @station.id() %>/edit">Click here to edit <%= @station.name() %> Station</a></p>
+      <p class="warning"><a href="/stations/<%= @station.id() %>/edit">Click here to edit the<%= @station.name() %> Station</a></p>
       <p class="return"><a href="/operator">Click here to return to the System Operator Page</a></p>
     </div>
 </div>

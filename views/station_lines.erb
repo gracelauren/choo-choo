@@ -1,6 +1,6 @@
 <div class ='container'>
 
-  <h1 class="rider">Lines for <%= @station.name() %> Station</h1>
+  <h1 class="rider">Lines for the <%= @station.name() %> Station</h1>
 
   <form action="/station_lines" method="get">
     <input id='station_id' name='station_id' type='hidden' value='<%= @station.id() %>'>
@@ -10,7 +10,7 @@
 
 
   <% if !@station.lines().any? %>
-  <p class="rider">There are no lines yet!</p>
+  <p class="warning">There are no lines yet!</p>
   <% else %>
   <ul>
     <% @station.lines().each() do |line|  %>

@@ -777,7 +777,7 @@ ol {
   padding-top: 2em;
   padding-bottom: 2em;
   width: 0px;
-  background: #9b2;
+  background: #D1CAED;
 }
 /*ol.1{
   background: #228DFF;
@@ -844,24 +844,11 @@ li:nth-child(6n + 0)::before {
   background-color: #BA01FF;
   border: 4px solid #BA01FF;
 }
-li:nth-child(1n + 0)a{
-  color: #228DFF;
+li a{
+  font-size: 25px;
+  color: #D1CAED;
 }
-li:nth-child(2n + 0)a{
-  color: #B6FF00;
-}
-li:nth-child(3n + 0)a{
-  color:  #FFDD1B;
-}
-li:nth-child(4n + 0)a{
-  color: #FF9900;
-}
-li:nth-child(5n + 0)a{
-  color:  #FF1177;
-}
-li:nth-child(6n + 0){
-  color: #BA01FF;
-}
+
 li:nth-child(1n + 0) a:hover {
   color: #228DFF;
   border-color:  neon2 1.5s ease-in-out infinite alternate;

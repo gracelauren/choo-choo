@@ -9,7 +9,7 @@
 
 
     <% if !@line.stations().any? %>
-    <p class="rider">There are no stations yet!</p>
+    <p class="warning">There are no stations yet!</p>
     <% else %>
     <ol>
       <% @line.stations().each() do |station|  %>
