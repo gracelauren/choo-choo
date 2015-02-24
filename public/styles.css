@@ -798,6 +798,8 @@ ol.6{
   background: #BA01FF;
 }*/
 /* ---- Station/Line ol elements ---- */
+
+
 li {
   position: relative;
   top: 2.5em;
@@ -917,6 +919,13 @@ li aside::before {
 li a:hover {
   cursor: pointer;
 }
+/*
+.station{
+  background-image: url(station.png);
+  background-repeat: no-repeat;
+  background-position: 0px center;
+  padding-left: 15px;
+}*/
 
 /*li:hover aside {
   display: block;

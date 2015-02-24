@@ -5,7 +5,7 @@
   <form action="/lines" method="post" class="add">
     <input id='station_id' name='station_id' type='hidden' value='<%= @station.id() %>'>
     <div class="form-group">
-      <label class = "form-label" for="line_id">Add a line that goes through this station:</label>
+      <label class = "form-label" for="line_id">Add a line that goes through the <%= @station.name() %> station:</label>
       <select class = "form-control input-lg" id="line_id" name="line_id">
           <% Line.all().each() do |line| %>
             <% if ! @station.lines().include?(line) %>
@@ -25,7 +25,7 @@
     <input name="_method" type="hidden" value="delete">
     <input type='hidden' value='<%= @station.id() %>' name='station_id'>
     <div class="form-group">
-      <label class = "form-label" for="line_id">Remove a line from this station:</label>
+      <label class = "form-label" for="line_id">Remove a line from the <%= @station.name() %> station:</label>
       <select class = "form-control input-lg" id="line_id" name="line_id">
         <% @station.lines().each() do |line| %>
           <option value="<%= line.id() %>"><%= line.name() %></option>
@@ -45,7 +45,7 @@
   <% if !@station.lines().any? %>
   <p class="warning">There are no lines yet!</p>
   <% else %>
-  <h2 class="operator"> The lines that go through this station are: </h2>
+  <h2 class="operator"> The lines that go through the <%= @station.name() %> station are: </h2>
     <ul>
       <% @station.lines().each() do |line|  %>
       <li><%= line.name() %></a></li>
@@ -56,7 +56,7 @@
 
 
     <div class="span7 text-center">
-      <p class="warning"><a href="/stations/<%= @station.id() %>/edit">Click here to edit the<%= @station.name() %> Station</a></p>
+      <p class="warning"><a href="/stations/<%= @station.id() %>/edit">Click here to edit the <%= @station.name() %> Station</a></p>
       <p class="return"><a href="/operator">Click here to return to the System Operator Page</a></p>
     </div>
 </div>

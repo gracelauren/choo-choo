@@ -11,11 +11,11 @@
       <% if !@lines.any? %>
       <p class="warning">There are no lines yet!</p>
       <% else %>
-      <ol>
+      <ul>
         <% @lines.each() do |line|  %>
         <li><a href="/line_stations/<%= line.id() %>"><%= line.name() %></a></li>
         <% end %>
-      </ol>
+      </ul>
       <% end %>
     </div>
 
@@ -26,11 +26,11 @@
       <% if !@stations.any? %>
       <p class="warning">There are no lines yet!</p>
       <% else %>
-      <ol>
+      <ul>
         <% @stations.each() do |station|  %>
-        <li><a href="/station_lines/<%= station.id() %>"><%= station.name() %></a></li>
+        <li class="station"><a href="/station_lines/<%= station.id() %>"><%= station.name() %></a></li>
         <% end %>
-      </ol>
+      </ul>
       <% end %>
     </div>
   </div>

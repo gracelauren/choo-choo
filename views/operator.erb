@@ -21,8 +21,7 @@
       <% else %>
         <ul>
           <% @stations.each() do |station|  %>
-          <li><a href="/station/<%= station.id() %>"><%= station.name() %></a></li>
-          <!-- took out this from li class='<%= station.id() %>' -->
+          <li class="station"><a href="/station/<%= station.id() %>"><%= station.name() %></a></li>
           <% end %>
         </ul>
       <% end %>
@@ -47,7 +46,6 @@
         <ul>
           <% @lines.each() do |line|  %>
           <li><a href="/line/<%= line.id() %>"><%= line.name() %></a></li>
-          <!-- took out this from li class='<%= line.id() %>' -->
           <% end %>
         </ul>
       <% end %>
