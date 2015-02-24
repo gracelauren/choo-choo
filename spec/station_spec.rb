@@ -10,11 +10,11 @@ describe(Station) do
     expect(station1.name()).to eq("Birdmont")
   end
 
-  it("will order the stations alphabetically") do
-    station2= Station.create({:name => "Birdmont" })
-    station1= Station.create({:name => "Kenzington" })
-    expect(Station.all()).to eq([station2, station1])
-  end
+  # it("will order the stations alphabetically") do
+  #   station2= Station.create({:name => "Birdmont" })
+  #   station1= Station.create({:name => "Kenzington" })
+  #   expect(Station.all()).to eq([station2, station1])
+  # end
 
   describe('#lines_not_added') do
     it("display lines not added") do

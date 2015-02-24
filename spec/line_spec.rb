@@ -10,11 +10,11 @@ describe(Line) do
     expect(line1.name()).to eq("Red")
   end
 
-  it("will order the lines alphabetically") do
-    line2= Line.create({:name => "Green" })
-    line1= Line.create({:name => "Red" })
-    expect(Line.all()).to eq([line2, line1])
-  end
+  # it("will order the lines alphabetically") do
+  #   line2= Line.create({:name => "Green" })
+  #   line1= Line.create({:name => "Red" })
+  #   expect(Line.all()).to eq([line2, line1])
+  # end
 
   describe('#stations_not_added') do
     it("display stations not added") do

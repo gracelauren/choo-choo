@@ -4,7 +4,7 @@ class Line < ActiveRecord::Base
   before_save(:capitalize_name)
   validates_uniqueness_of :name
 
-  default_scope { order('name') }
+  # default_scope { order('name') }
 
   define_method(:stations_not_added) do
     added = self.stations()
